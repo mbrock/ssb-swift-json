@@ -11,11 +11,11 @@ extension JSON: Sequence {
       }
 
     case .object(let object):
-      var iterator = object.makeIterator()
+      var iterator = object.entries.makeIterator()
       return AnyIterator {
         guard let (key, value) = iterator.next() else { return nil }
 
-        return .object([key: value])
+        return .object(OrderedDictionary([(key, value)]))
       }
 
     default:

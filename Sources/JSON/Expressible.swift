@@ -10,13 +10,13 @@ extension JSON: ExpressibleByArrayLiteral {
 extension JSON: ExpressibleByDictionaryLiteral {
   public init(dictionaryLiteral elements: (String, JSONRepresentable)...) {
 
-    var dict: [String: JSON] = [:]
+    var dict: [(String, JSON)] = []
 
     for (key, value) in elements {
-      dict[key] = value.encoded()
+      dict.append((key, value.encoded()))
     }
 
-    self = .object(dict)
+    self = .object(OrderedDictionary(dict))
   }
 }
 

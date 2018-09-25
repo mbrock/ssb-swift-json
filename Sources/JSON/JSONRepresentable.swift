@@ -72,11 +72,11 @@ extension Sequence where Iterator.Element: JSONRepresentable {
 extension Sequence where Iterator.Element == (key: String, value: JSONRepresentable) {
   
   public func encoded() -> JSON {
-    var encoded: [String: JSON] = [:]
+    var encoded: [(String, JSON)] = []
     for (key, value) in self {
-      encoded[key] = value.encoded()
+      encoded.append((key, value.encoded()))
     }
-    return .object(encoded)
+    return .object(OrderedDictionary(encoded))
   }
 }
 

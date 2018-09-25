@@ -84,7 +84,7 @@ extension JSON.Serializer {
     // TODO: Look into a more effective way of adding to a string.
 
     for _ in 0..<indentLevel {
-      stream.write("    ")
+      stream.write("  ")
     }
   }
 }
@@ -119,8 +119,8 @@ extension JSON.Serializer {
     stream.write("]")
   }
 
-  func writeObject<O: TextOutputStream>(_ o: [String: JSON], to stream: inout O, indentLevel: Int = 0) throws {
-    if o.isEmpty {
+  func writeObject<O: TextOutputStream>(_ o: OrderedDictionary, to stream: inout O, indentLevel: Int = 0) throws {
+    if o.entries.isEmpty {
       stream.write("{}")
       return
     }
@@ -129,7 +129,7 @@ extension JSON.Serializer {
     writeNewlineIfNeeded(to: &stream)
     var i = 0
     var nullsFound = 0
-    for (key, value) in o {
+    for (key, value) in o.entries {
       defer { i += 1 }
       if omitNull && value == .null {
         nullsFound += 1
@@ -207,7 +207,7 @@ extension JSON.Serializer {
         default:
           stream.write("\\u")
           let str = String(char.value, radix: 16, uppercase: true)
-          if str.characters.count == 1 {
+          if str.count == 1 {
 
             stream.write("000\(str)")
           } else {

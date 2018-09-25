@@ -218,7 +218,7 @@ extension JSON {
     }
 
     set {
-      guard case .object(var object) = self else { return }
+      guard case .object(let object) = self else { return }
       object[key] = newValue
       self = .object(object)
     }
@@ -249,12 +249,18 @@ extension JSON {
 
 // MARK: - JSON Accessors
 
+extension OrderedDictionary {
+  func toJSONObject() -> [String: JSON] {
+    return entries.reduce(into: [:], { $0[$1.0] = $1.1 })
+  }
+}
+
 extension JSON {
 
   /// Returns this enum's associated Dictionary value iff `self == .object(_), `nil` otherwise.
   public var object: [String: JSON]? {
     guard case .object(let o) = self else { return nil }
-    return o
+    return o.toJSONObject()
   }
 
   /// Returns this enum's associated Array value iff `self == .array(_)`, `nil` otherwise.

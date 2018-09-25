@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BB440DC215A5B54003FBB7A /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB440DB215A5B54003FBB7A /* OrderedDictionary.swift */; };
 		AA2B38D61DC0CCBB008CECCD /* AccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2B38D51DC0CCBB008CECCD /* AccessorTests.swift */; };
 		AA2B38D81DC0D2EB008CECCD /* JSONIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2B38D71DC0D2EB008CECCD /* JSONIterator.swift */; };
 		_LinkFileRef_JSON_via_JSONTests /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_JSON" /* JSON.framework */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5BB440DB215A5B54003FBB7A /* OrderedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
 		AA2B38D51DC0CCBB008CECCD /* AccessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessorTests.swift; sourceTree = "<group>"; };
 		AA2B38D71DC0D2EB008CECCD /* JSONIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONIterator.swift; sourceTree = "<group>"; };
 		__PBXFileRef_JSON.xcodeproj/Configs/Project.xcconfig /* JSON.xcodeproj/Configs/Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = JSON.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				__PBXFileRef_Sources/JSON/JSONParser.swift /* JSONParser.swift */,
 				__PBXFileRef_Sources/JSON/JSONRepresentable.swift /* JSONRepresentable.swift */,
 				__PBXFileRef_Sources/JSON/JSONSerializer.swift /* JSONSerializer.swift */,
+				5BB440DB215A5B54003FBB7A /* OrderedDictionary.swift */,
 			);
 			name = JSON;
 			path = Sources/JSON;
@@ -248,6 +251,7 @@
 			files = (
 				__src_cc_ref_Sources/JSON/Constants.swift /* Constants.swift in Sources */,
 				__src_cc_ref_Sources/JSON/Expressible.swift /* Expressible.swift in Sources */,
+				5BB440DC215A5B54003FBB7A /* OrderedDictionary.swift in Sources */,
 				__src_cc_ref_Sources/JSON/JSON.swift /* JSON.swift in Sources */,
 				__src_cc_ref_Sources/JSON/JSONAccessors.swift /* JSONAccessors.swift in Sources */,
 				__src_cc_ref_Sources/JSON/JSONConvertible.swift /* JSONConvertible.swift in Sources */,

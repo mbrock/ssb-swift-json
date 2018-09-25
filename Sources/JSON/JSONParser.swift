@@ -282,10 +282,10 @@ extension JSON.Parser {
 
     guard peek() != objectClose else {
       pop()
-      return .object([:])
+      return .object(OrderedDictionary([]))
     }
 
-    var tempDict: [String: JSON] = Dictionary(minimumCapacity: 6)
+    var tempDict: [(String, JSON)] = []
     var wasComma = false
 
     repeat {
@@ -317,7 +317,7 @@ extension JSON.Parser {
           break
 
         default:
-          tempDict[key] = value
+          tempDict.append((key, value))
         }
 
       case objectClose?:
@@ -325,7 +325,7 @@ extension JSON.Parser {
         guard !wasComma else { throw Error.Reason.trailingComma }
 
         pop()
-        return .object(tempDict)
+        return .object(OrderedDictionary(tempDict))
 
       default:
         throw Error.Reason.invalidSyntax
